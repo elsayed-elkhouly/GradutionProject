@@ -2,3 +2,7 @@
     background-color: #3E7BBC;
     color: white;
 }
+.CircularProgressbar-text {
+  dominant-baseline: middle;
+  text-anchor: middle;
+}

@@ -1,24 +1,28 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import MyCourses from './Componts/my cours/MyCourses'
+import MyCourses from './Componts/StudentCourses/MyCourses/MyCourses'
 import Layout from './Layout/Layout'
-import DashBoard from './Componts/DashBoard/DashBoard'
-import Complete from './componts/compeletcours/Complete'
+
 import SideBar from './Componts/SideBar/SideBar'
-import ActiveCourses from './Componts/ActiveCourses/ActiveCourses'
-import FirstYear from './componts/FirstYear/FirstYear'
-import SecondYear from './componts/SecondYear/SecondYear'
-import ThirdYear from './componts/ThirdYear/ThirdYear'
-import FourthYear from './componts/FourthYear/FourthYear'
+import ActiveCourses from './Componts/StudentCourses/ActiveCourses/ActiveCourses'
+import FirstYear from './Componts/StudentCourses/completeCourses/FirstYear/FirstYear'
+import SecondYear from './Componts/StudentCourses/completeCourses/SecondYear/SecondYear'
+import ThirdYear from './Componts/StudentCourses/completeCourses/ThirdYear/ThirdYear'
+import FourthYear from './Componts/StudentCourses/completeCourses/FourthYear/FourthYear'
+import LayOutCourses from './Componts/StudentCourses/LayOutCourses/LayOutCourses'
+import CompletedCourses from './Componts/StudentCourses/completeCourses/Complete'
+import CoursesRegisteration from './Componts/CoursesRegistration/CoursesRegisteration'
+import ConfirmRegistration from './Componts/CoursesRegistration/confirmRegistration/ConfirmRegistration'
 
 
 function App() {
   const router = createBrowserRouter([{
     path: "", element: <SideBar />, children: [
+      { path: "", element: <LayOutCourses /> },
       {path:"myCourses",element:<MyCourses/>,children:[
       {index:true , element:<ActiveCourses/>},
       {path:"activeCourses",element:<ActiveCourses/>},
-      {path:"complete",element:<Complete/>,children:[
+      {path:"complete",element:<CompletedCourses/>,children:[
         {path:"firstYear",element:<FirstYear/>},
         {path:"secondYear",element:<SecondYear/>},
         {path:"thirdYear",element:<ThirdYear/>},
@@ -26,7 +30,8 @@ function App() {
       ]},
     ]},
       
-      { path: "Dashbord", element:<DashBoard/> },
+      { path: "coursesregistration", element:<CoursesRegisteration/> },
+        {path:"confirmRegistration",element:<ConfirmRegistration/>},
 
 
     ]
