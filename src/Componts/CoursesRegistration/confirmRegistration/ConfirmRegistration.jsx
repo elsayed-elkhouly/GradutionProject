@@ -50,7 +50,7 @@ export default function ConfirmRegistration() {
 
                                 <tr className="bg-white border-b border-gray-200 text-[10px] md:text-lg font-semibold text-center">
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Network Security
                                     </td>
 
@@ -62,14 +62,14 @@ export default function ConfirmRegistration() {
                                         3
                                     </td>
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Dr. Aida Nasr
                                     </td>
 
                                 </tr>
                                 <tr className="bg-white border-b border-gray-200 text-[10px] md:text-lg font-semibold text-center">
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Network Security
                                     </td>
 
@@ -81,14 +81,14 @@ export default function ConfirmRegistration() {
                                         3
                                     </td>
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Dr. Aida Nasr
                                     </td>
 
                                 </tr>
                                 <tr className="bg-white border-b border-gray-200 text-[10px] md:text-lg font-semibold text-center">
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Network Security
                                     </td>
 
@@ -100,7 +100,7 @@ export default function ConfirmRegistration() {
                                         3
                                     </td>
 
-                                    <td className="px-1 md:px-6 py-2 md:py-4 break-words">
+                                    <td className="px-1 md:px-6 py-2 md:py-4 wrap-break-words">
                                         Dr. Aida Nasr
                                     </td>
 
