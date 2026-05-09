@@ -18,7 +18,7 @@ const CoursesRegistration = () => {
       <NavLayOut />
       <div className='mx-auto'>
         <div className="flex justify-center items-center mt-8 text-2xl gap-2">
-          <IoDocumentTextOutline className='text-3xl' />
+          <buildStyles className='text-3xl' />
           <h1 className='font-semibold'>Courses Registration</h1>
         </div>
 

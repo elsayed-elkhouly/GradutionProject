@@ -13,10 +13,13 @@ import LayOutCourses from './Componts/StudentCourses/LayOutCourses/LayOutCourses
 import CompletedCourses from './Componts/StudentCourses/completeCourses/Complete'
 import CoursesRegisteration from './Componts/CoursesRegistration/CoursesRegisteration'
 import ConfirmRegistration from './Componts/CoursesRegistration/confirmRegistration/ConfirmRegistration'
+import LoginAdmin from './Componts/LoginAdmin/LoginAdmin'
+import LoginStudent from './Componts/LoginStudent/LoginStudent'
 
 
 function App() {
-  const router = createBrowserRouter([{
+  const router = createBrowserRouter([
+    {
     path: "", element: <SideBar />, children: [
       { path: "", element: <LayOutCourses /> },
       {path:"myCourses",element:<MyCourses/>,children:[
@@ -35,7 +38,10 @@ function App() {
 
 
     ]
-  }])
+  },
+ { path: "/LoginStudent", element: <LoginStudent /> },
+  { path: "/LoginAdmin", element: <LoginAdmin /> },
+])
 
   return (
     <RouterProvider router={router} />
