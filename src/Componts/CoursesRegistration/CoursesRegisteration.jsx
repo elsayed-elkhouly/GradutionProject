@@ -23,9 +23,9 @@ const CoursesRegistration = () => {
         </div>
 
 
-        <div className='text-center mx-auto mt-8 bg-[#3E7BBC] max-w-1/3 rounded-2xl p-4'>
+        <div className='text-center mx-auto mt-8 bg-[#3E7BBC] md:max-w-1/3 max-w-55 rounded-2xl p-4'>
           <h1 className='text-white font-semibold text-2xl '>Registration Summary</h1>
-          <CircularProgressbar className='p-20 pb-7 pt-5' value={20} text={`6 / 18 Hrs`} styles={buildStyles({
+          <CircularProgressbar className='md:p-10 md:mt-0 md:mb-0 md:pb-7 mb-4 mt-4' value={20} text={`6 / 18 Hrs`} styles={buildStyles({
             pathColor: "#3E7BBC",
             textColor: "white",
             trailColor: "white",
@@ -60,7 +60,7 @@ const CoursesRegistration = () => {
             </div>
 
           </div>
-          <div className="lg:w-3/4 bg-white shadow-md shadow-gray-400 border-2 border-gray-400  rounded-3xl pb-5">
+          <div className="lg:w-3/4  bg-white shadow-md shadow-gray-400 border-2 border-gray-400  rounded-3xl pb-5">
             <div className=" text-black font-semibold p-3 mb-3 rounded-t-3xl flex items-center justify-between">
               <h1 className="text-2xl">Pattern</h1>
               <Checkbox className='rounded-full' sx={{
@@ -71,7 +71,7 @@ const CoursesRegistration = () => {
                 },
               }} />
             </div>
-            <div className=" flex  flex-col  ms-5 mb-4 text-[#868686]">
+            <div className=" flex  flex-col ms-5 mb-4 text-[#868686]">
               <p className=" font-semibold text-lg ">Credit Hours: 3 Hrs</p>
               <p className=" font-semibold text-lg ">Code: CS434</p>
               <p className=" font-semibold text-lg ">Dr. Marian </p>
@@ -80,7 +80,7 @@ const CoursesRegistration = () => {
           </div>
 
         </div>
-        <div className="flex justify-center gap-5 mt-10 mb-5">
+        <div className="flex flex-col md:flex-row p-5 justify-center gap-5 mt-2 mb-20">
           <button className='bg-[#3E7BBC] text-white font-semibold text-lg px-6 py-2 rounded-full'>
             Add Course
           </button>

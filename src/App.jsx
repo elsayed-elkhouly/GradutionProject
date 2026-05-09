@@ -15,6 +15,7 @@ import CoursesRegisteration from './Componts/CoursesRegistration/CoursesRegister
 import ConfirmRegistration from './Componts/CoursesRegistration/confirmRegistration/ConfirmRegistration'
 import LoginAdmin from './Componts/LoginAdmin/LoginAdmin'
 import LoginStudent from './Componts/LoginStudent/LoginStudent'
+import RoleLogin from './Componts/RoleLogin/RoleLogin'
 
 
 function App() {
@@ -39,8 +40,9 @@ function App() {
 
     ]
   },
- { path: "/LoginStudent", element: <LoginStudent /> },
-  { path: "/LoginAdmin", element: <LoginAdmin /> },
+ { path: "/loginStudent", element: <LoginStudent /> },
+  { path: "/loginAdmin", element: <LoginAdmin /> },
+  {path:"rolelogin",element:<RoleLogin/>}
 ])
 
   return (

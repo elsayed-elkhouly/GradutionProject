@@ -16,7 +16,7 @@ const MyCourses = () => {
     
             <h1 className='text-black font-semibold text-3xl'>My Courses</h1>
           </div>
-          <div className="md:flex  justify-center items-center mt-7 md:gap-7 mb-10">
+          <div className="flex flex-col md:flex-row  justify-center items-center mt-7 md:gap-7 mb-10">
             <div className="md:mb-0 mb-4">
               <NavLink className='bg-[#B3B3B3] text-white font-semibold  text-xl ps-8 pe-8 p-1 rounded-full' to={"."} end>Active Courses</NavLink>
             </div>      <div className="">

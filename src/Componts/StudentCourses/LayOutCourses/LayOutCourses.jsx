@@ -17,32 +17,32 @@ export default function LayOutCourses() {
     <>
       
       <NavLayOut/>
-        <div>
-          <section className=' flex justify-center items-center gap-8 mt-6'>
-            <img src={profilephoto} alt="" className='w-48 h-52 rounded-2xl pt-3' />
-            <div>
-              <p className='flex py-1   text-[24px] font-semibold items-center'>
-                <div className='pe-2 text-2xl'><CgProfile /> </div>
+        <div >
+          <section className='flex flex-col md:flex-row justify-center items-center gap-8 mt-6'>
+            <img src={profilephoto} alt="" className='w-48 h-52  flex  rounded-2xl pt-3' />
+            <div className=''>
+              <p className='flex py-1 md:text-[20px] font-semibold items-center'>
+                <span className='pe-2 text-2xl'><CgProfile /> </span>
                 Mohammed ismail moahmed
               </p>
-              <p className='flex py-1 text-[20px] font-medium items-center'>
-                <div className='pe-2 text-2xl'><LiaUniversitySolid /> </div>
+              <p className='flex py-1 md:text-[20px] font-medium items-center'>
+                <span className='pe-2 text-2xl'><LiaUniversitySolid /> </span>
                 Faculty of Computer and Information
               </p>
-              <p className='flex py-1 text-[20px] font-medium items-center'>
-                <div className='pe-2 text-2xl'><FcDepartment /> </div>
+              <p className='flex py-1 md:text-[20px] font-medium items-center'>
+                <span className='pe-2 text-2xl'><FcDepartment /> </span>
                 Information Technology
               </p>
-              <p className='flex py-1 text-[20px] font-medium items-center'>
-                <div className='pe-2 text-2xl'><LuGraduationCap /> </div>
+              <p className='flex py-1 md:text-[20px] font-medium items-center'>
+                <span className='pe-2 text-2xl'><LuGraduationCap /> </span>
                 Fourth-year Student
               </p>
-              <p className='flex py-1 text-[20px] font-medium items-center'>
-                <div className='pe-2 text-2xl'><ImProfile /> </div>
+              <p className='flex py-1 md:text-[20px] font-medium items-center'>
+                <span className='pe-2 text-2xl'><ImProfile /> </span>
                 Student ID: 2022476
               </p>
-              <p className='flex py-1 text-[20px] font-medium items-center'>
-                <div className='pe-2 text-2xl'><CiBookmarkCheck /> </div>
+              <p className='flex py-1 md:text-[20px] font-medium items-center'>
+                <span className='pe-2 text-2xl'><CiBookmarkCheck /> </span>
                 Total GBA: 3.7 / 4.0
               </p>
             </div>

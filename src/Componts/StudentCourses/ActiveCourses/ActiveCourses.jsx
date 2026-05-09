@@ -3,7 +3,7 @@ export default function ActiveCourses() {
 
   return (
     <>
-    <div className="grid md:grid-cols-2  md:gap-8 gap-4 lg:ms-20 md:p-0 p-5 ">
+    <div className="grid md:grid-cols-2  md:gap-8 gap-4 lg:ms-20 md:p-0 p-5 mb-15 ">
       <div className="lg:w-3/4  bg-white shadow-xl  rounded-3xl pb-5">
         <div className="text-center bg-[#3E7BBC] text-white font-semibold p-3 mb-3 rounded-t-3xl">
           <h1 className="text-xl">Virtual Reality</h1>

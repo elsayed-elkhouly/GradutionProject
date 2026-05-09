@@ -4,9 +4,9 @@ import LayOutCompleted from '../LayOutCompleted/LayOutCompleted'
 export default function CompletedCourses() {
     
   return (
-    <div className='container mx-auto text-center mt-5'>
+    <div className='container mx-auto text-center mt-5 mb-15'>
       <LayOutCompleted/>
-      <Outlet/>
+      <Outlet />
     </div>
   )
 }

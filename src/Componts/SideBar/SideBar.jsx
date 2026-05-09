@@ -13,7 +13,7 @@ const SideBar = () => {
 
    return (
        <div className="flex h-screen overflow-hidden">
-      <div className="xl:hidden fixed top-0 left-0 right-0 bg-[#3E7BBC] text-white flex items-center justify-between p-4 z-50">
+      <div className="lg:hidden fixed top-0 left-0 right-0 bg-[#3E7BBC] text-white flex items-center justify-between p-4 z-50">
         <h2 className="font-bold">Student Dashboard</h2>
 
         <IoMdMenu
@@ -23,14 +23,14 @@ const SideBar = () => {
       </div>
       {open && (
         <div
-          className="fixed inset-0 bg-black/40 xl:hidden z-40"
+          className="fixed inset-0 bg-black/40 lg:hidden z-40"
           onClick={closeSidebar}
         />
       )}
       <div
         className={`fixed lg:static top-0 left-0 h-screen bg-[#3E7BBC] z-50 transition-transform duration-300
-        w-[300px] xl:w-[376px]
-        ${open ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0`}
+        w-[300px] lg:w-[376px]
+        ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
       >
         <div className="lg:hidden flex justify-end p-4">
           <button
