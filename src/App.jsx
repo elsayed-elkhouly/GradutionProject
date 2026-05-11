@@ -42,7 +42,7 @@ function App() {
   },
  { path: "/loginStudent", element: <LoginStudent /> },
   { path: "/loginAdmin", element: <LoginAdmin /> },
-  {path:"rolelogin",element:<RoleLogin/>}
+  {path:"/rolelogin",element:<RoleLogin/>}
 ])
 
   return (

@@ -9,7 +9,7 @@ export default function RoleLogin() {
 
   return (
     <>
-      <div className={`h-screen bg-red-500 flex-col justify-center content-center ${styles.role}`}>
+      <div className={`h-screen  overflow-hidden flex-col justify-center content-center ${styles.role}`}>
         <div className="container mx-auto w-full absolute top-9 left-2">
           <img src={logo} className='rounded-full w-20  ' alt="logo" />
         </div>
