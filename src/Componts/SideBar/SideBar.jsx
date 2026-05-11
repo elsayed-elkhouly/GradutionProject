@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import profilephoto from './../../assets/images/71b48ac3d16520fc208a4a4730a42a706a1fe48f.jpg'
 import styles from './SideBar.module.css'
 import { FiHome } from "react-icons/fi";
 import { IoCalendarClearOutline, IoDocumentTextOutline } from 'react-icons/io5'
 import { IoMdBook, IoMdMenu } from "react-icons/io";
-
+import { Authcontext } from '../../Context/AuthContextProvider'
 const SideBar = () => {
-   const [open, setOpen] = useState(false);
+  const { Logout } = useContext(Authcontext)
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
 
+  function logout() {
+    Logout()
+    navigate("/LoginStudent")
+
+  }
   const closeSidebar = () => setOpen(false);
 
-   return (
-       <div className="flex h-screen overflow-hidden">
+  return (
+    <div className="flex h-screen overflow-hidden">
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-[#3E7BBC] text-white flex items-center justify-between p-4 z-50">
         <h2 className="font-bold">Student Dashboard</h2>
 
@@ -36,16 +43,12 @@ const SideBar = () => {
           <button
             onClick={closeSidebar}
             className="text-white text-2xl"
-          > 
+          >
             ✕
           </button>
         </div>
         <div className="flex items-center gap-3 justify-center py-[45px] mx-auto">
-          <img
-            className="w-[87px] h-[87px] rounded-full"
-            src={profilephoto}
-            alt="profile"
-          />
+
 
           <div>
             <h3 className="text-amber-50 text-[20px] font-semibold capitalize">
@@ -61,8 +64,7 @@ const SideBar = () => {
             to={"mycourses"}
             onClick={closeSidebar}
             className={({ isActive }) =>
-              `flex items-center gap-3 p-4 mt-3 ${
-                isActive ? "bg-blue-500 text-white rounded-lg" : ""
+              `flex items-center gap-3 p-4 mt-3 ${isActive ? "bg-blue-500 text-white rounded-lg" : ""
               }`
             }
           >
@@ -74,8 +76,7 @@ const SideBar = () => {
             to={"/CoursesRegistration"}
             onClick={closeSidebar}
             className={({ isActive }) =>
-              `flex items-center gap-3 p-4 mt-3 ${
-                isActive ? "bg-blue-500 text-white rounded-lg" : ""
+              `flex items-center gap-3 p-4 mt-3 ${isActive ? "bg-blue-500 text-white rounded-lg" : ""
               }`
             }
           >
@@ -83,9 +84,9 @@ const SideBar = () => {
             <p>Courses Registration</p>
           </NavLink>
 
-          <p className="text-blue-600 font-medium p-10 mt-36 cursor-pointer">
+          <button onClick={logout} className="text-blue-600 font-medium p-10 mt-36 cursor-pointer">
             Log out
-          </p>
+          </button>
         </div>
       </div>
 
@@ -95,7 +96,7 @@ const SideBar = () => {
       </div>
 
     </div>
-   )
+  )
 }
 
 export default SideBar

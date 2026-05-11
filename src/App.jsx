@@ -16,37 +16,51 @@ import ConfirmRegistration from './Componts/CoursesRegistration/confirmRegistrat
 import LoginAdmin from './Componts/LoginAdmin/LoginAdmin'
 import LoginStudent from './Componts/LoginStudent/LoginStudent'
 import RoleLogin from './Componts/RoleLogin/RoleLogin'
+import AuthContextProvider from './Context/AuthContextProvider'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'react-hot-toast'
+import ProtectedRouts from './Componts/ProtectedRoutes/ProtectedRouts'
 
+const client = new QueryClient();
 
 function App() {
   const router = createBrowserRouter([
     {
-    path: "", element: <SideBar />, children: [
-      { path: "", element: <LayOutCourses /> },
-      {path:"myCourses",element:<MyCourses/>,children:[
-      {index:true , element:<ActiveCourses/>},
-      {path:"activeCourses",element:<ActiveCourses/>},
-      {path:"complete",element:<CompletedCourses/>,children:[
-        {path:"firstYear",element:<FirstYear/>},
-        {path:"secondYear",element:<SecondYear/>},
-        {path:"thirdYear",element:<ThirdYear/>},
-        {path:"fourthYear",element:<FourthYear/>},
-      ]},
-    ]},
-      
-      { path: "coursesregistration", element:<CoursesRegisteration/> },
-        {path:"confirmRegistration",element:<ConfirmRegistration/>},
+      path: "", element:<ProtectedRouts > <SideBar /> </ProtectedRouts>, children: [
+        { path: "", element: <ProtectedRouts > <LayOutCourses /> </ProtectedRouts> },
+        { 
+          path: "myCourses", element: <ProtectedRouts > <MyCourses /> </ProtectedRouts>, children: [
+            { index: true, element: <ProtectedRouts > <ActiveCourses /> </ProtectedRouts> },
+            { path: "activeCourses", element: <ProtectedRouts > <ActiveCourses /> </ProtectedRouts> },
+            {
+              path: "complete", element: <ProtectedRouts > <CompletedCourses /> </ProtectedRouts>, children: [
+                { path: "firstYear", element: <ProtectedRouts > <FirstYear /> </ProtectedRouts> },
+                { path: "secondYear", element: <ProtectedRouts > <SecondYear /> </ProtectedRouts> },
+                { path: "thirdYear", element: <ProtectedRouts > <ThirdYear /> </ProtectedRouts> },
+                { path: "fourthYear", element: <ProtectedRouts > <FourthYear /> </ProtectedRouts> },
+              ]
+            },
+          ]
+        },
+
+        { path: "coursesregistration", element: <CoursesRegisteration /> },
+        { path: "confirmRegistration", element: <ConfirmRegistration /> },
 
 
-    ]
-  },
- { path: "/loginStudent", element: <LoginStudent /> },
-  { path: "/loginAdmin", element: <LoginAdmin /> },
-  {path:"/rolelogin",element:<RoleLogin/>}
-])
+      ]
+    },
+    { path: "/loginStudent", element: <LoginStudent /> },
+    { path: "/loginAdmin", element: <LoginAdmin /> },
+    { path: "/rolelogin", element: <RoleLogin /> }
+  ])
 
   return (
-    <RouterProvider router={router} />
+    <QueryClientProvider client={client}>
+      <AuthContextProvider>
+        <Toaster />
+        <RouterProvider router={router} />
+      </AuthContextProvider>
+    </QueryClientProvider>
   )
 }
 
