@@ -3,6 +3,7 @@ import logoUni from '../../assets/images/8e248382e1e314dffe63ba186b83a73bc896807
 import logo from '../../assets/images/Adobe Express - file.png'
 import { FaArrowLeft } from 'react-icons/fa'
 import { SiSpringsecurity } from 'react-icons/si'
+import { Link } from 'react-router-dom'
 
 const LoginAdmin = () => {
   return (
@@ -13,7 +14,7 @@ const LoginAdmin = () => {
              <img src={logo} alt="" className='mx-auto' />
            </div>
            <div className='  relative w-109.5 h-130.25 shadow-2xl from-[rgba(74,144,194,0.85)] to-[rgba(230,220,203,0.8)] backdrop-blur-xl  rounded-2xl border-white border-2 p-5 mt-15'>
-             <FaArrowLeft className='text-2xl cursor-pointer ' />
+             <Link to={'/roleLogin'}><FaArrowLeft className='text-2xl cursor-pointer ' /></Link> 
              <div className='flex justify-center items-center flex-col '>
                <div className='w-20 rounded-4xl'>
                  <img src={logoUni} alt="" className='bg-white mt-1 border-white rounded-full object-cover' />
