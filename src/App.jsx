@@ -20,6 +20,9 @@ import AuthContextProvider from './Context/AuthContextProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast'
 import ProtectedRouts from './Componts/ProtectedRoutes/ProtectedRouts'
+import StudentMangment from './Componts/StudentMangment/StudentMangment'
+import Departments from './Componts/Departments/Departments'
+import Registration from './Componts/Registration/Registration'
 
 const client = new QueryClient();
 
@@ -44,6 +47,9 @@ function App() {
         },
 
         { path: "coursesregistration", element: <CoursesRegisteration /> },
+        { path: "studentmangment", element: <StudentMangment /> },
+        { path: "Departments", element: <Departments /> },
+        { path: "Registration", element: <Registration /> },
         { path: "confirmRegistration", element: <ConfirmRegistration /> },
 
 

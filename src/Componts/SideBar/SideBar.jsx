@@ -6,6 +6,8 @@ import { FiHome } from "react-icons/fi";
 import { IoCalendarClearOutline, IoDocumentTextOutline } from 'react-icons/io5'
 import { IoMdBook, IoMdMenu } from "react-icons/io";
 import { Authcontext } from '../../Context/AuthContextProvider'
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 const SideBar = () => {
   const { Logout } = useContext(Authcontext)
   const [open, setOpen] = useState(false);
@@ -17,6 +19,19 @@ const SideBar = () => {
 
   }
   const closeSidebar = () => setOpen(false);
+   let role = null;
+   try {
+  const token = Cookies.get("token");
+
+  // console.log("token:", token);
+  // console.log("type:", typeof token);
+
+  if (typeof token === "string" && token.trim() !== "") {
+    role = jwtDecode(token).role;
+  }
+} catch (error) {
+  console.error("Token decode error:", error);
+}
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -54,35 +69,83 @@ const SideBar = () => {
             <h3 className="text-amber-50 text-[20px] font-semibold capitalize">
               elsayed mohamed elkhouly
             </h3>
-            <p className="text-white capitalize">
+              <p className="text-white capitalize">
               information technology
             </p>
           </div>
         </div>
         <div className="justify-center items-center mx-auto w-10/12 bg-white py-3 rounded-2xl">
-          <NavLink
-            to={"mycourses"}
-            onClick={closeSidebar}
-            className={({ isActive }) =>
-              `flex items-center gap-3 p-4 mt-3 ${isActive ? "bg-blue-500 text-white rounded-lg" : ""
-              }`
-            }
-          >
-            <IoMdBook className="text-xl" />
-            <p>My courses</p>
-          </NavLink>
+      
+         {role === "admin" ? (
+  <div>
+    <NavLink
+      to={"/StudentMangment"}
+      onClick={closeSidebar}
+      className={({ isActive }) =>
+        `flex items-center gap-3 p-4 mt-3 ${
+          isActive ? "bg-blue-500 text-white rounded-lg" : ""
+        }`
+      }
+    >
+      <IoDocumentTextOutline className="text-xl" />
+      <p>StudentMangment</p>
+    </NavLink>
 
-          <NavLink
-            to={"/CoursesRegistration"}
-            onClick={closeSidebar}
-            className={({ isActive }) =>
-              `flex items-center gap-3 p-4 mt-3 ${isActive ? "bg-blue-500 text-white rounded-lg" : ""
-              }`
-            }
-          >
-            <IoDocumentTextOutline className="text-xl" />
-            <p>Courses Registration</p>
-          </NavLink>
+    <NavLink
+      to={"/Departments"}
+      onClick={closeSidebar}
+      className={({ isActive }) =>
+        `flex items-center gap-3 p-4 mt-3 ${
+          isActive ? "bg-blue-500 text-white rounded-lg" : ""
+        }`
+      }
+    >
+      <IoDocumentTextOutline className="text-xl" />
+      <p>Departments</p>
+    </NavLink>
+
+    <NavLink
+      to={"/Registration"}
+      onClick={closeSidebar}
+      className={({ isActive }) =>
+        `flex items-center gap-3 p-4 mt-3 ${
+          isActive ? "bg-blue-500 text-white rounded-lg" : ""
+        }`
+      }
+    >
+      <IoDocumentTextOutline className="text-xl" />
+      <p>Registration</p>
+    </NavLink>
+  </div>
+) : (
+  <div>
+    <NavLink
+      to={"mycourses"}
+      onClick={closeSidebar}
+      className={({ isActive }) =>
+        `flex items-center gap-3 p-4 mt-3 ${
+          isActive ? "bg-blue-500 text-white rounded-lg" : ""
+        }`
+      }
+    >
+      <IoMdBook className="text-xl" />
+      <p>My courses</p>
+    </NavLink>
+
+    <NavLink
+      to={"/CoursesRegistration"}
+      onClick={closeSidebar}
+      className={({ isActive }) =>
+        `flex items-center gap-3 p-4 mt-3 ${
+          isActive ? "bg-blue-500 text-white rounded-lg" : ""
+        }`
+      }
+    >
+      <IoDocumentTextOutline className="text-xl" />
+      <p>Courses Registration</p>
+    </NavLink>
+  </div>
+)}
 
           <button onClick={logout} className="text-blue-600 font-medium p-10 mt-36 cursor-pointer">
             Log out

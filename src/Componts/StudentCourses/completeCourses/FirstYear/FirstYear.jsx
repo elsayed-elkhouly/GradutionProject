@@ -7,7 +7,7 @@ export default function FirstYear() {
   const firstYearCourses = CompletedCourses?.filter(
     (course) => course.year === "FIRST_YEAR"
   );
-  console.log(firstYearCourses);
+  // console.log(firstYearCourses);
   return (
     <div className='grid md:grid-cols-2  grid-cols-1 gap-7 lg:ms-20 p-3'>
       {firstYearCourses?.map((course, index) => (

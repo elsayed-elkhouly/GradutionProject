@@ -1,15 +1,54 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logoUni from '../../assets/images/8e248382e1e314dffe63ba186b83a73bc8968073 (1).png'
 import logo from '../../assets/images/Adobe Express - file.png'
 import { FaArrowLeft } from 'react-icons/fa'
 import { SiSpringsecurity } from 'react-icons/si'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Authcontext } from '../../Context/AuthContextProvider'
+import z from 'zod'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import Cookies from 'js-cookie'
 
 const LoginAdmin = () => {
+   const { insertToken } = useContext(Authcontext)
+    const navigate = useNavigate()
+
+  const schame = z.object({
+    email: z.string("email is required").email("email is invalid"),
+    password: z.string("password is required").min(6 , "password must be at least 6 characters")
+  })
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+
+    defaultValues: {
+      email: "",
+      password: ""
+    },
+    resolver: zodResolver(schame)
+  })
+  async function Signin(values) {
+
+    try {
+      const { data } = await axios.post("https://university-system-production.up.railway.app/admin/signin", values);
+      console.log(data);
+
+      toast.success(data.message);
+      insertToken(data.token);
+      Cookies.set("token", data.token, { expires: 1 });
+
+      navigate("/");
+    } catch (error) {
+       console.log("Message:", error.response?.data?.message);
+      toast.error(error.response?.data?.message);
+    }
+  }
   return (
       <>
    
-         <div className='flex justify-center items-center min-h-screen ss relative'>
+         <div className='flex justify-center items-center min-h-screen ss relative '>
            <div className='absolute top-2  md:w-36 w-20  md:left-3 left-0 '>
              <img src={logo} alt="" className='mx-auto' />
            </div>
@@ -19,23 +58,23 @@ const LoginAdmin = () => {
                <div className='w-20 rounded-4xl'>
                  <img src={logoUni} alt="" className='bg-white mt-1 border-white rounded-full object-cover' />
                </div>
-               <h1 className='text-xl text-center font-semibold py-3'>Student Service Gateway</h1>
+               <h1 className='text-xl text-center font-semibold py-3'>Admin Service Gateway</h1>
                <p className='font-semibold text-[18px] pb-6'>Tanta University</p>
              </div>
-             <form className="max-w-sm mx-auto">
+             <form onSubmit={handleSubmit(Signin)} className="max-w-sm mx-auto">
                <div className="mb-5 md:ms-9 ">
                  <label className="floating-label">
                    <span>Email</span>
-                   <input type="email" placeholder="email" className="input input-md border-white border focus:border-amber-50 focus:outline-0  bg-transparent rounded-xl" />
+                   <input  {...register("email")} type="email" placeholder="email" className="input input-md border-white border focus:border-amber-50 focus:outline-0  bg-transparent rounded-xl" />
                  </label>
                </div>
                <div className="mb-5 md:ms-9">
                  <label className="floating-label ">
                    <span >password</span>
-                   <input type="password" placeholder="password" className="input input-md border-white border focus:border-amber-50 focus:outline-0 bg-transparent rounded-xl" />
+                   <input {...register("password")} type="password" placeholder="password" className="input input-md border-white border focus:border-amber-50 focus:outline-0 bg-transparent rounded-xl" />
                  </label>
                </div>
-               <button className="my-5 py-2 btn btn-soft bg-linear-to-b from-[#32140E] to-[#7D4A40] w-full rounded-2xl text-white font-bold text-[18px] ">Login</button>
+               <button type='submit' className="my-5 py-2 btn btn-soft bg-linear-to-b from-[#32140E] to-[#7D4A40] w-full rounded-2xl text-white font-bold text-[18px] ">Login</button>
              </form>
              <p className=' flex items-center justify-center text-[#FF5047] gap-1.5 text-[16px] font-semibold'><SiSpringsecurity /> Privacy Policy and Data Security</p>
            </div>
